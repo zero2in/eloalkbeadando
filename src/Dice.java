@@ -1,4 +1,5 @@
 import java.util.Random;
+//Kocka osztaly
 public class Dice {
     private Random randomDiceSide = new Random();
     private final int LOWESTNUM = 1;

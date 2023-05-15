@@ -1,5 +1,5 @@
 public class Fighter implements NPC{
-
+    //harcos osztaly
     private Dice fighterDice = new Dice();
     public int getHealth(){
         return this.fighterHealth;

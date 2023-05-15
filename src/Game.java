@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 public class Game {
+    //jatek logika osztaly
     private boolean exit = false;
     private Mage mage = new Mage();
     private int mageplace =  0;

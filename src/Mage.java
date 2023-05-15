@@ -1,4 +1,5 @@
 public class Mage implements NPC{
+    //varazslo osztaly
     private Dice mageDice = new Dice();
     private int mageHealth = mageDice.throw_Dice()+3;
     public int getHealth(){
