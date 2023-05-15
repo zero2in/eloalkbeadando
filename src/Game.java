@@ -3,11 +3,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 public class Game {
+    private boolean exit = false;
     private Mage mage = new Mage();
     private int mageplace =  0;
     private Fighter fighter = new Fighter();
     private int fighterplace = 2;
-    private boolean exit = false;
     private final int gameBoardSize = 3;
     private NPC[] gameBoard = new NPC[gameBoardSize];
     private Random NPCJumpPointCalculation = new Random();
@@ -19,14 +19,6 @@ public class Game {
                 CalcMove();
                 this.turncounter++;
             } else {this.exit = true;}
-        }
-    }
-    public void gameLoopa(){
-        int turncounter = 1;
-        display_Board();
-        while(this.exit == false){
-
-            turncounter++;
         }
     }
     private void CalcMove(){
@@ -46,10 +38,9 @@ public class Game {
         }
     }
     private void fight(){
-        Dice dmgdice = new Dice();
-        int dmgtakenbymage = dmgdice.getRandomAttackDamagePoints();
+        int dmgtakenbymage = fighter.getDamage();
         this.mage.takeDamage(dmgtakenbymage);
-        int dmgtakenbyfighter = dmgdice.getRandomAttackDamagePoints();
+        int dmgtakenbyfighter = mage.getDamage();
         this.fighter.takeDamage(dmgtakenbyfighter);
         displayFight(dmgtakenbyfighter,dmgtakenbymage,this.mageplace);
         if(isDead(this.fighter)){
@@ -68,9 +59,9 @@ public class Game {
         System.out.print("|");
         for(int p = 0; p < this.gameBoardSize;p++){
             if(p == place){
-                System.out.print("MF");
+                System.out.print("X");
             }else {
-                System.out.print(" ");
+                System.out.print("_");
             }
             System.out.print("|");
         }
@@ -93,14 +84,15 @@ public class Game {
             else if(f instanceof Mage){
                 System.out.print("M");
             } else {
-                System.out.print(" ");
+                System.out.print("_");
             }
             System.out.print("|");
         }
-        System.out.print("\t Mage health:" + this.mage.getMageHealth() + "\t Fighter health:" + this.fighter.getFighterHealth());
+        System.out.print("\n Mage health:" + this.mage.getMageHealth() + "\t Fighter health:" + this.fighter.getFighterHealth());
         System.out.println();
     }
     public Game(){
+        System.out.println("Mage health: " + this.mage.getHealth() + "\tFighter health: "+this.fighter.getHealth());
         this.gameBoard[this.mageplace] = this.mage;
         this.gameBoard[this.fighterplace] = this.fighter;
         gameLoop();
