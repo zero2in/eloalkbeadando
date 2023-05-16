@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
         startGame();
     }
+    //git repository link: https://github.com/zero2in/eloalkbeadando/tree/master/src
     private static void startGame(){
         Game firstGame = new Game();
     }
