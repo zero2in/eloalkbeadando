@@ -96,7 +96,6 @@ public class Game {
         System.out.println("Mage health: " + this.mage.getHealth() + "\tFighter health: "+this.fighter.getHealth());
         this.gameBoard[this.mageplace] = this.mage;
         this.gameBoard[this.fighterplace] = this.fighter;
-        gameLoop();
     }
 
 }

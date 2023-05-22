@@ -8,5 +8,6 @@ public class Main {
     //git repository link: https://github.com/zero2in/eloalkbeadando/tree/master/src
     private static void startGame(){
         Game firstGame = new Game();
+        firstGame.gameLoop();
     }
 }
